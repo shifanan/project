@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function check() {
+        var user = document.getElementById("txt3").value;
+        var regex = /^[a-zA-Z0-9]{5,}$/; 
+        // Check if the user ID is valid
+        if (!user.match(regex)) {
+          alert("User ID must be at least 5 characters long and contain only alphanumeric characters.");
+          return; // Stop execution if the User ID is invalid
+        }
+
+        var pass = document.getElementById("txt4").value;
+        // Check if the password is at least 8 characters long
+        if (pass.length < 8) {
+          alert("The password must be at least 8 characters.");
+          return; // Stop execution if the password length is invalid
+        }
+
+        // Check if the password matches "admin123"
+        if (pass !== "admin123") {
+          alert("Incorrect password.");
+          return; // Stop execution if the password is incorrect
+        }
+
+        // If both conditions are met, show success and redirect
+        alert("Success!");
+        location.href = "message.html"; // Redirect to message.html
+      }
+    </script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #c9cfd3, #ddcc6e); 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: rgba(190, 106, 106, 0.644);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: 400px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+        color: #333;
+      }
+
+      input[type="text"], input[type="password"] {
+        width: 380px;
+        padding: 10px;
+        margin: 10px 0 15px 0;
+        font-size: 14px;
+        background-color: rgb(231, 238, 245);
+      }
+
+      input[type="button"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+
+      .alert {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .a {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Login Form</h2>
+      <br>
+      <label for="txt3">USER ID</label><br>
+      <input type="text" id="txt3"><br><br>
+
+      <label for="txt4">PASSWORD</label><br>
+      <input type="password" id="txt4"><br>
+
+      <input type="button" value="Submit" onclick="check()">
+    </div>
+  </body>
+</html>
